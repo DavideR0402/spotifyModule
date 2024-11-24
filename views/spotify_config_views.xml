@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_spotify_config_form" model="ir.ui.view">
+        <field name="name">spotify.config.form</field>
+        <field name="model">spotify.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="client_id"/>
+                        <field name="client_secret" password="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_spotify_config_tree" model="ir.ui.view">
+        <field name="name">spotify.config.tree</field>
+        <field name="model">spotify.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="client_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_spotify_config" model="ir.actions.act_window">
+        <field name="name">Spotify Configuration</field>
+        <field name="res_model">spotify.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

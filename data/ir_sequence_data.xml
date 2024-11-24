@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+        
+    <record id="seq_spotify" model="ir.sequence">
+        <field name="name">Spotify Playlist</field>
+        <field name="code">spotify.playlist</field>
+        <field name="prefix">SP</field>
+        <field name="padding">6</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_spotify_playlist_form" model="ir.ui.view">
+        <field name="name">spotify.playlist.form</field>
+        <field name="model">spotify.playlist</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sync_tracks" string="Sync Tracks" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <field name="image_url" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Playlist Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="spotify_id"/>
+                            <field name="track_count"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Tracks">
+                            <field name="track_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="artist"/>
+                                    <field name="spotify_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_spotify_playlist_tree" model="ir.ui.view">
+        <field name="name">spotify.playlist.tree</field>
+        <field name="model">spotify.playlist</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="track_count"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_spotify_playlist" model="ir.actions.act_window">
+        <field name="name">Spotify Playlists</field>
+        <field name="res_model">spotify.playlist</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_sync_spotify_playlists" model="ir.actions.server">
+        <field name="name">Sync Playlists</field>
+        <field name="model_id" ref="model_spotify_playlist"/>
+        <field name="binding_model_id" ref="model_spotify_playlist"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = model.action_sync_playlists()</field>
+    </record>
+</odoo>

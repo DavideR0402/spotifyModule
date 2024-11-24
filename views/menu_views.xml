@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_spotify_root" name="Spotify" sequence="100"/>
+    
+    <menuitem id="menu_spotify_dashboard"
+              name="Dashboard"
+              parent="menu_spotify_root"
+              action="action_spotify_dashboard"
+              sequence="1"/>
+              
+    <menuitem id="menu_spotify_config"
+              name="Configuration"
+              parent="menu_spotify_root"
+              action="action_spotify_config"
+              sequence="10"/>
+              
+    <menuitem id="menu_spotify_playlist"
+              name="Playlists"
+              parent="menu_spotify_root"
+              action="action_spotify_playlist"
+              sequence="20"/>
+</odoo>
